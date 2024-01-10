@@ -43,9 +43,11 @@ systemctl daemon-reload
 systemctl enable $SERVICE_NAME
 systemctl start $SERVICE_NAME
 
-#Remove install.sh from /opt/climateTrackr
+#CleanUp INSTALL_DIR
 rm -f $INSTALL_DIR/install.sh
-
+rm -rf $INSTALL_DIR/config
+rm -f $INSTALL_DIR/README.md 
+rm -rf $INSTALL_DIR/.git
 #Move uninstall-climatetrackr.sh from /opt/climateTrackr to /usr/local/bin
 mv $INSTALL_DIR/uninstall-climatetrackr.sh /usr/local/bin/
 
