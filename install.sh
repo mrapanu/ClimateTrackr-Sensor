@@ -3,7 +3,7 @@
 # Define variables
 INSTALL_DIR="/opt/climateTrackr"
 CONFIG_DIR="/etc/climateTrackr"
-REPO_URL="https://github.com/yourusername/climateTrackr.git"  # Replace with the actual repository URL
+REPO_URL="https://github.com/mrapanu/ClimateTrackr-Sensor.git"
 SERVICE_NAME="climatetrackr"
 
 # Install dependencies

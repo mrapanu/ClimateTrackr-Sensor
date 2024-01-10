@@ -7,7 +7,7 @@ ClimateTrackr is a Python-based project for tracking temperature and humidity da
 - [Features](#Features)
 - [Installation](#Installation)
 - [Usage](#Usage)
-- [Clean Up](#Clean Up)
+- [CleanUp](#Clean Up)
 - [Configuration](#configuration)
 
 ## Introduction
@@ -25,7 +25,7 @@ ClimateTrackr is designed to monitor temperature and humidity using a DHT sensor
 
 To install ClimateTrackr Sensor in one command:
 ```
-curl url to install.sh | bash
+curl https://raw.githubusercontent.com/mrapanu/ClimateTrackr-Sensor/main/install.sh | bash
 ```
 
 ## Usage
