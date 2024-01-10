@@ -41,7 +41,6 @@ EOF
 # Reload systemd and start the service
 systemctl daemon-reload
 systemctl enable $SERVICE_NAME
-systemctl start $SERVICE_NAME
 
 #CleanUp INSTALL_DIR
 rm -f $INSTALL_DIR/install.sh
