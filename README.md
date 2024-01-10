@@ -7,7 +7,7 @@ ClimateTrackr is a Python-based project for tracking temperature and humidity da
 - [Features](#Features)
 - [Installation](#Installation)
 - [Usage](#Usage)
-- [CleanUp](#Clean Up)
+- [CleanUp](#CleanUp)
 - [Configuration](#configuration)
 
 ## Introduction
@@ -45,7 +45,7 @@ To stop the service:
 systemctl stop climatetrackr
 ```
 
-## Clean Up
+## CleanUp
 
 To install ClimateTrackr Sensor write the following command:
 ```
