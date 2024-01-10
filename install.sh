@@ -7,7 +7,7 @@ REPO_URL="https://github.com/mrapanu/ClimateTrackr-Sensor.git"
 SERVICE_NAME="climatetrackr"
 
 # Install dependencies
-apt install -y python3 python3-dev python3-pip git
+apt install -y gpiod python3 python3-dev python3-pip git
 python3 -m pip install --upgrade pip setuptools wheel
 python3 -m pip install pika --upgrade
 pip3 install adafruit-circuitpython-dht
