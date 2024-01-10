@@ -9,7 +9,7 @@ ClimateTrackr is a Python-based project for tracking temperature and humidity da
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [CleanUp](#CleanUp)
-- [Configuration](#configuration)
+- [Configuration](#Configuration)
 
 ## Introduction
 
@@ -28,7 +28,7 @@ Before install anything make sure you have the following:
 
 - RabbitMQ Server installed and configured to receive messages from the sensor.
 
-`IMPORTANT`: You must connect the DHT Sensor to your raspberry pi and change the `config.ini` with your configuration. See [configuration][#Configuration] section.
+`IMPORTANT`: You must connect the DHT Sensor to your raspberry pi and change the `config.ini` with your configuration. See [configuration](#Configuration) section.
 
 ## Installation
 
