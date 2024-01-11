@@ -10,13 +10,11 @@ SERVICE_NAME="climatetrackr"
 apt install -y gpiod python3 python3-dev python3-pip git || { echo "Error installing dependencies. Exiting."; exit 1; }
 python3 -m pip install --upgrade pip setuptools wheel || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
 python3 -m pip install pika --upgrade || { echo "Error installing pika. Exiting."; exit 1; }
-pip3 install adafruit-circuitpython-dht || { echo "Error installing adafruit-circuitpython-dht. Exiting."; exit 1; }
-pip3 install --install-option="--force-pi" Adafruit_DHT || { echo "Error installing Adafruit_DHT. Exiting."; exit 1; }
+pip3 install adafruit-circuitpython-dht
+pip3 install --install-option="--force-pi" Adafruit_DHT
 
 # Clone the repository
-git clone $REPO_URL $INSTALL_DIR || { echo "Error cloning the repository. Exiting."; exit 1; }
-
-# Continue with the rest of the script
+git clone $REPO_URL $INSTALL_DIR
 
 # Create config directory and copy the config file
 mkdir -p $CONFIG_DIR
