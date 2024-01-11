@@ -5,12 +5,26 @@ INSTALL_DIR="/opt/climateTrackr"
 CONFIG_DIR="/etc/climateTrackr"
 REPO_URL="https://github.com/mrapanu/ClimateTrackr-Sensor.git"
 SERVICE_NAME="climatetrackr"
-
+OS_VERSION_CODENAME=$(grep VERSION_CODENAME /etc/os-release | cut -d'=' -f2)
 # Install dependencies
-apt install -y python3-libgpiod python3 python3-dev python3-pip git || { echo "Error installing dependencies. Exiting."; exit 1; }
-pip install --upgrade pip setuptools wheel --break-system-packages || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
-pip install pika --upgrade --break-system-packages || { echo "Error installing pika. Exiting."; exit 1; }
-pip install adafruit-circuitpython-dht --break-system-packages || { echo "Error installing adafruit dht. Exiting."; exit 1; }
+
+if [ "$OS_VERSION_CODENAME" == "jammy" ]; then
+    apt install -y python3-libgpiod python3 python3-dev python3-pip git || { echo "Error installing dependencies. Exiting."; exit 1; }
+    pip install --upgrade pip setuptools wheel || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
+    pip install pika --upgrade || { echo "Error installing pika. Exiting."; exit 1; }
+    pip install adafruit-circuitpython-dht || { echo "Error installing adafruit dht. Exiting."; exit 1; }
+elif [ "$OS_VERSION_CODENAME" == "mantic" ] || [ "$OS_VERSION_CODENAME" == "bullseye" ]; then
+    apt install -y python3-libgpiod python3 python3-dev python3-pip git || { echo "Error installing dependencies. Exiting."; exit 1; }
+    pip install --upgrade pip setuptools wheel --break-system-packages || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
+    pip install pika --upgrade --break-system-packages || { echo "Error installing pika. Exiting."; exit 1; }
+    pip install adafruit-circuitpython-dht --break-system-packages || { echo "Error installing adafruit dht. Exiting."; exit 1; }
+else
+#Not tested. Try to install python dependencies with pip3
+    apt install -y python3-libgpiod python3 python3-dev python3-pip git || { echo "Error installing dependencies. Exiting."; exit 1; }
+    pip3 install --upgrade pip setuptools wheel || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
+    pip3 install pika --upgrade || { echo "Error installing pika. Exiting."; exit 1; }
+    pip3 install adafruit-circuitpython-dht || { echo "Error installing adafruit dht. Exiting."; exit 1; }
+fi
 
 # Clone the repository
 git clone $REPO_URL $INSTALL_DIR
@@ -44,7 +58,7 @@ systemctl enable $SERVICE_NAME
 # Clean up INSTALL_DIR
 rm -f $INSTALL_DIR/install.sh
 rm -rf $INSTALL_DIR/config
-rm -f $INSTALL_DIR/README.md 
+rm -f $INSTALL_DIR/README.md
 rm -rf $INSTALL_DIR/.git
 rm -rf $INSTALL_DIR/images
 # Move uninstall-climatetrackr.sh from /opt/climateTrackr to /usr/local/bin
