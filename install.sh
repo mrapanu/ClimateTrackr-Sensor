@@ -53,6 +53,9 @@ rm -rf $INSTALL_DIR/images
 # Move uninstall-climatetrackr.sh from /opt/climateTrackr to /usr/local/bin
 mv $INSTALL_DIR/uninstall-climatetrackr.sh /usr/local/bin/
 
+# Make uninstall-climatetrackr.sh executable
+chmod +x /usr/local/bin/uninstall-climatetrackr.sh
+
 echo "Installation complete. Use the following commands for service management:"
 echo "systemctl status $SERVICE_NAME"
 echo "systemctl start $SERVICE_NAME"
