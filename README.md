@@ -10,6 +10,7 @@ ClimateTrackr is a Python-based project for tracking temperature and humidity da
 - [Usage](#Usage)
 - [CleanUp](#CleanUp)
 - [Configuration](#Configuration)
+- [Configuration-Example](#Configuration-Example)
 
 ## Introduction
 
@@ -81,6 +82,60 @@ Modify the configuration file at `/etc/climateTrackr/config.ini` to customize th
 | RabbitMQ   | routing_key      | RabbitMQ routing key                             | climateTrackrKey     |
 | Interval   | message_interval | Time interval between sending messages (seconds) | 120                  |
 
-## Example
+## Configuration-Example
 
-TO DO
+In this example we'll do the following:
+
+- Initialize the Raspberry Pi pin D27
+- Set sensor type DHT22
+- Change the room name to "Living"
+- Set RabbitMQ host to 'rabbitmq-server.home.lan'
+- Set RabbitMQ username / password with "testuser" / "passwd01". `IMPORTANT` make sure this user is created with this password in RabbitMQ server.
+- Set RabbitMQ exchange=climatetrackr_ex and routing_key=testkey
+
+### Wiring the Pi
+
+Connect DHT22 sensor to the Raspberry as in the following image. This example use pin D27:
+
+![Wiring PI with DHT22](https://github.com/mrapanu/ClimateTrackr-Sensor/blob/main/images/wiring_pi_dht22.png?raw=true)
+
+### Change the configuration for config.ini
+
+In this example, after the installation you have to configure the sensor as follows:
+```
+vi /etc/climateTrackr/config.ini
+```
+Change as follows:
+```
+room = Living
+pin = D27
+host = rabbitmq-server.home.lan #IP of the RabbitMQ server can be used also
+username = testuser  #This user must exist on RabbitMQ
+password = passwd01
+exchange = climatetrackr_ex
+routing_key = testkey
+```
+Save the file and restart climatetrackr service with:
+```
+systemctl restart climatetrackr
+```
+
+### RabbitMQ setup:
+
+Login with your username / password on the RabbitMQ server. After that do the following:
+
+1. Create an Exchange named climatetrackr_ex as follows:
+
+![Create Exchange RMQ](https://github.com/mrapanu/ClimateTrackr-Sensor/blob/main/images/create_exchange.png?raw=true)
+
+2. Create a queue named 'climatetrackr_queue':
+
+![Create Queue RMQ](https://github.com/mrapanu/ClimateTrackr-Sensor/blob/main/images/create_queue.png?raw=true)
+
+3. Select the Queue which was created and bind with the climatetrackr_ex Exchange using Routing key as testkey:
+
+![Create Queue RMQ](https://github.com/mrapanu/ClimateTrackr-Sensor/blob/main/images/bind_queue_ex.png?raw=true)
+
+4. Check the queue messages received from the sensor by selecting the queue and hit "Get Messages button":
+
+![Check Messages](https://github.com/mrapanu/ClimateTrackr-Sensor/blob/main/images/get_messages.png?raw=true)
