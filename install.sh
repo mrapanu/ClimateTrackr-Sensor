@@ -49,6 +49,7 @@ rm -f $INSTALL_DIR/install.sh
 rm -rf $INSTALL_DIR/config
 rm -f $INSTALL_DIR/README.md 
 rm -rf $INSTALL_DIR/.git
+rm -rf $INSTALL_DIR/images
 # Move uninstall-climatetrackr.sh from /opt/climateTrackr to /usr/local/bin
 mv $INSTALL_DIR/uninstall-climatetrackr.sh /usr/local/bin/
 
