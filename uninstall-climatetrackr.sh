@@ -21,6 +21,9 @@ rm -rf $INSTALL_DIR
 # Remove the config directory
 rm -rf $CONFIG_DIR
 
+# Remove the log directory [default]
+rm -rf /var/log/climateTrackr
+
 rm -f /usr/local/bin/uninstall-climatetrackr.sh
 
 echo "Uninstallation complete."

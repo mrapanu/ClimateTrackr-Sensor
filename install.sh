@@ -11,7 +11,6 @@ apt install -y gpiod python3 python3-dev python3-pip git || { echo "Error instal
 python3 -m pip install --upgrade pip setuptools wheel || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
 python3 -m pip install pika --upgrade || { echo "Error installing pika. Exiting."; exit 1; }
 pip3 install adafruit-circuitpython-dht
-pip3 install --install-option="--force-pi" Adafruit_DHT
 
 # Clone the repository
 git clone $REPO_URL $INSTALL_DIR
