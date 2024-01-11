@@ -61,6 +61,10 @@ while True:
             "humidity": humidity
         })
 
+         # Log the data before sending to RabbitMQ
+        log_message = f"[INFO] [{dt_string}] Sending temperature = {temperature}, humidity = {humidity} to RabbitMQ exchange {exchange}."
+        logging.info(log_message)
+
         # Initialize RabbitMQ connection
         rabbitmq_connection, rabbitmq_channel = initialize_rabbitmq(rabbitmq_host, rabbitmq_port, rabbitmq_username, rabbitmq_password)
 
