@@ -13,17 +13,23 @@ if [ "$OS_VERSION_CODENAME" == "jammy" ]; then
     pip install --upgrade pip setuptools wheel || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
     pip install pika --upgrade || { echo "Error installing pika. Exiting."; exit 1; }
     pip install adafruit-circuitpython-dht || { echo "Error installing adafruit dht. Exiting."; exit 1; }
+    pip install RPi.GPIO || { echo "Error installing adafruit RPi.GPIO. Exiting."; exit 1; }
+
 elif [ "$OS_VERSION_CODENAME" == "mantic" ] || [ "$OS_VERSION_CODENAME" == "bullseye" ]; then
     apt install -y python3-libgpiod python3 python3-dev python3-pip git || { echo "Error installing dependencies. Exiting."; exit 1; }
     pip install --upgrade pip setuptools wheel --break-system-packages || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
     pip install pika --upgrade --break-system-packages || { echo "Error installing pika. Exiting."; exit 1; }
     pip install adafruit-circuitpython-dht --break-system-packages || { echo "Error installing adafruit dht. Exiting."; exit 1; }
+    pip install RPi.GPIO --break-system-packages || { echo "Error installing adafruit RPi.GPIO. Exiting."; exit 1; }
+
 else
 #Not tested. Try to install python dependencies with pip3
     apt install -y python3-libgpiod python3 python3-dev python3-pip git || { echo "Error installing dependencies. Exiting."; exit 1; }
     pip3 install --upgrade pip setuptools wheel || { echo "Error upgrading pip, setuptools, and wheel. Exiting."; exit 1; }
     pip3 install pika --upgrade || { echo "Error installing pika. Exiting."; exit 1; }
     pip3 install adafruit-circuitpython-dht || { echo "Error installing adafruit dht. Exiting."; exit 1; }
+    pip3 install RPi.GPIO || { echo "Error installing adafruit RPi.GPIO. Exiting."; exit 1; }
+
 fi
 
 # Clone the repository
