@@ -78,7 +78,7 @@ Modify the configuration file at `/etc/climateTrackr/config.ini` to customize th
 | RabbitMQ   | port             | RabbitMQ port                                    | 5672                 |
 | RabbitMQ   | username         | RabbitMQ username                                | guest                |
 | RabbitMQ   | password         | RabbitMQ password                                | guest                |
-| RabbitMQ   | exchange         | RabbitMQ exchange name                           | amq.direct           |
+| RabbitMQ   | exchange         | RabbitMQ exchange name                           | climateTrackr_ex     |
 | RabbitMQ   | routing_key      | RabbitMQ routing key                             | climateTrackrKey     |
 | Interval   | message_interval | Time interval between sending messages (seconds) | 120                  |
 
