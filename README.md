@@ -1,6 +1,6 @@
 # ClimateTrackr Sensor
 
-ClimateTrackr is a Python-based project for tracking temperature and humidity data using a DHT sensor and publishing it to RabbitMQ. This README provides an overview of the project, installation instructions, and basic usage guidelines.
+ClimateTrackr Sensor is a Python-based project for tracking temperature and humidity data using a DHT sensor and publishing it to RabbitMQ. This README provides an overview of the project, installation instructions, and basic usage guidelines.
 
 ## Table of Contents
 - [Introduction](#Introduction)
